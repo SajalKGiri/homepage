@@ -1,0 +1,2404 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Giri Research Laboratory | IISER Mohali
+  </title>
+  <meta content="Sajal Giri, IISER Mohali. Quantum spectroscopy and dynamics." name="description"/>
+  <style>
+:root {
+  --maroon:#500b19;
+  --ink:#25252d;
+  --muted:#696972;
+  --paper:#faf8f9;
+  --line:#e7e0e2;
+  --width:1140px
+}
+* {
+  box-sizing:border-box
+}
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:100px
+}
+body {
+  margin:0;
+  color:var(--ink);
+  font:16px/1.7 Arial,Helvetica,sans-serif
+}
+a {
+  color:var(--maroon)
+}
+.wrap {
+  width:min(var(--width),calc(100% - 48px));
+  margin:auto
+}
+header {
+  position:sticky;
+  top:0;
+  background:#fffffff5;
+  border-bottom:1px solid var(--line);
+  z-index:10
+}
+.nav {
+  min-height:88px;
+  display:flex;
+  align-items:center;
+  gap:30px
+}
+.brand {
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-right:auto;
+  color:var(--maroon)
+}
+.mark {
+  font:700 25px Georgia,serif;
+  border:1px solid var(--maroon);
+  padding:3px 10px
+}
+.brand strong {
+  display:block;
+  font:700 20px Georgia,serif
+}
+.brand small {
+  display:block;
+  font-size:10px;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+  color:var(--muted)
+}
+nav {
+  display:flex;
+  align-items:center;
+  gap:25px
+}
+nav a {
+  text-decoration:none;
+  color:#404049;
+  font:14px 'Courier New',monospace
+}
+nav a:hover {
+  color:var(--maroon);
+  text-decoration:underline
+}
+.button {
+  display:inline-block;
+  background:var(--maroon);
+  color:white;
+  padding:11px 25px;
+  text-decoration:none;
+  border:1px solid var(--maroon);
+  font:14px/1.5 'Courier New',monospace;
+  transition:background .2s
+}
+.button:hover {
+  background:#742435;
+  color:white
+}
+.menu {
+  display:none;
+  background:white;
+  border:1px solid var(--line);
+  padding:8px 12px;
+  font-size:20px
+}
+.hero {
+  position:relative;
+  overflow:hidden;
+  background:#15232d;
+  min-height:490px;
+  display:grid;
+  place-items:center;
+  color:white;
+  text-align:center
+}
+.hero-art {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  opacity:.85
+}
+.hero-content {
+  position:relative;
+  z-index:1;
+  padding:70px 24px
+}
+.eyebrow {
+  font:12px 'Courier New',monospace;
+  letter-spacing:3px;
+  text-transform:uppercase
+}
+.hero h1 {
+  font:400 clamp(32px,5vw,57px)/1.25 'Courier New',monospace;
+  margin:20px 0 12px;
+  text-shadow:0 2px 20px #000
+}
+.hero p {
+  font:18px 'Courier New',monospace;
+  color:#eee
+}
+.hero-content:before {
+  content:'';
+  position:absolute;
+  inset:35px -20px;
+  background:#0a152c66;
+  z-index:-1
+}
+.research {
+  padding:76px 0;
+  background:linear-gradient(130deg,#f7faff,#fff6f8)
+}
+.intro {
+  text-align:center;
+  max-width:810px;
+  margin:0 auto 45px
+}
+h2 {
+  font:700 clamp(25px,3vw,34px)/1.3 'Courier New',monospace;
+  color:var(--maroon);
+  margin:0 0 22px
+}
+.intro h3 {
+  font:400 24px/1.5 Georgia,serif;
+  margin:0 0 18px
+}
+.intro p {
+  color:var(--muted);
+  margin-bottom:25px
+}
+.cards {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:26px
+}
+.card {
+  background:white;
+  border:1px solid var(--line);
+  padding:27px;
+  box-shadow:0 9px 24px #42111c06
+}
+.card h3 {
+  font:700 18px/1.4 'Courier New',monospace;
+  min-height:50px;
+  margin:0 0 18px
+}
+.visual {
+  width:100%;
+  height:190px;
+  display:block;
+  background:#edf0f3;
+  border-radius:3px
+}
+.card p {
+  color:var(--muted);
+  font-size:14px;
+  min-height:72px
+}
+.card details {
+  font-size:14px;
+  color:var(--muted);
+  margin-top:20px
+}
+.card summary {
+  cursor:pointer;
+  color:var(--maroon);
+  font-weight:bold
+}
+.card summary:focus-visible,a:focus-visible,button:focus-visible {
+  outline:3px solid #c49a58;
+  outline-offset:5px
+}
+.about {
+  padding:60px 0
+}
+.about-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px
+}
+.about p {
+  color:var(--muted)
+}
+.placeholder {
+  border-left:3px solid var(--maroon);
+  padding-left:20px
+}
+.support {
+  border-top:1px solid var(--line);
+  background:var(--paper);
+  padding:35px 0;
+  text-align:center
+}
+.support h2 {
+  font-size:16px;
+  color:var(--ink);
+  margin-bottom:24px
+}
+.logos {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:30px
+}
+.logos span {
+  padding:10px 20px;
+  border:1px dashed #cbbfc3;
+  color:#81757a;
+  font:14px Georgia,serif
+}
+footer {
+  border-top:1px solid var(--line);
+  padding:22px 0;
+  font-size:12px;
+  color:var(--muted)
+}
+/*footer .wrap {
+  display:flex;
+  justify-content:space-between;
+  gap:20px
+}*/
+footer .wrap {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.skip {
+  position:absolute;
+  left:10px;
+  top:-100px;
+  background:white;
+  padding:10px;
+  z-index:20
+}
+.skip:focus {
+  top:10px
+}
+@media(max-width:850px) {
+  .nav {
+  min-height:76px;
+  flex-wrap:wrap;
+  gap:12px;
+  padding:15px 0
+}
+.menu {
+  display:block
+}
+nav {
+  display:none;
+  width:100%;
+  flex-wrap:wrap;
+  padding:12px 0
+}
+nav.open {
+  display:flex
+}
+.cards {
+  grid-template-columns:1fr
+}
+.card h3,.card p {
+  min-height:0
+}
+.visual {
+  height:230px
+}
+.hero {
+  min-height:390px
+}
+.about-grid {
+  grid-template-columns:1fr;
+  gap:25px
+}
+.research {
+  padding:50px 0
+}
+
+}
+@media(prefers-reduced-motion:reduce) {
+  html {
+  scroll-behavior:auto
+}
+
+}
+
+.timeline {
+  list-style:none;
+  padding:0;
+  color:var(--muted);
+  font-size:14px
+}
+.timeline li {
+  padding:9px 0;
+  border-bottom:1px solid var(--line)
+}
+.timeline strong {
+  color:var(--maroon)
+}
+
+
+.section-label {
+  display:block;
+  font:11px/1.6 'Courier New',monospace;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--maroon);
+  margin-bottom:16px
+}
+
+.intro {
+  max-width:900px;
+  margin-bottom:48px
+}
+.intro>p {
+  font-size:17px;
+  line-height:1.9;
+  text-align:left
+}
+.intro h2 {
+  font-size:clamp(24px,3vw,34px)
+}
+
+.themes {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:30px
+}
+.themes .card {
+  padding:32px;
+  display:flex;
+  flex-direction:column;
+  min-width:0
+}
+.themes .card h3 {
+  font-size:21px;
+  line-height:1.45;
+  min-height:92px;
+  color:var(--maroon)
+}
+.themes .visual {
+  height:210px;
+  margin-bottom:12px
+}
+.themes .card>p {
+  font-size:15px;
+  line-height:1.85;
+  min-height:0;
+  margin:14px 0 0
+}
+.theme-focus {
+  margin-top:auto;
+  padding-top:26px
+}
+.theme-focus strong {
+  display:block;
+  border-top:1px solid var(--line);
+  padding-top:18px;
+  font:12px 'Courier New',monospace;
+  color:var(--maroon);
+  text-transform:uppercase;
+  letter-spacing:1px
+}
+.theme-focus p {
+  min-height:0;
+  margin-bottom:0;
+  font:italic 17px/1.6 Georgia,serif;
+  color:var(--ink)
+}
+
+@media(max-width:850px) {
+  .themes {
+  grid-template-columns:1fr
+}
+.themes .card h3 {
+  min-height:0
+}
+.themes .card {
+  padding:24px
+}
+.intro>p {
+  font-size:16px
+}
+.eyebrow {
+  letter-spacing:1.5px
+}
+.brand small {
+  letter-spacing:.8px;
+  font-size:9px
+}
+
+}
+
+.hero-art {
+  opacity:1
+}
+.hero-content:before {
+  background:linear-gradient(90deg,transparent,#07152299 20%,#07152299 80%,transparent)
+}
+.themes .visual {
+  height:auto;
+  aspect-ratio:2/1;
+  object-fit:contain;
+  border:1px solid var(--line)
+}
+
+
+.publications {
+  padding:70px 0;
+  background:#fff;
+  border-bottom:1px solid var(--line)
+}
+/* .pub-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px;
+  margin-bottom:18px
+}*/
+.pub-heading {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.pub-heading h2 {
+  margin-bottom:0
+}
+.pub-heading .button {
+  white-space:nowrap
+}
+.pub-list {
+  list-style:none;
+  padding:0;
+  margin:0
+}
+.pub-list li {
+  display:grid;
+  grid-template-columns:70px 1fr;
+  gap:24px;
+  padding:26px 0;
+  border-bottom:1px solid var(--line)
+}
+.pub-list li:last-child {
+  border-bottom:0
+}
+.pub-year {
+  font:700 17px/1.6 'Courier New',monospace;
+  color:var(--maroon);
+  padding-top:2px
+}
+.pub-list h3 {
+  font:600 18px/1.5 Georgia,serif;
+  margin:0 0 8px
+}
+.pub-list h3 a {
+  text-decoration:none;
+  color:var(--ink)
+}
+.pub-list h3 a:hover {
+  color:var(--maroon);
+  text-decoration:underline
+}
+.pub-list p {
+  margin:5px 0;
+  font-size:13px;
+  color:var(--muted)
+}
+.pub-authors strong {
+  color:var(--ink)
+}
+.pub-journal a {
+  margin-left:9px;
+  font-size:12px
+}
+@media(max-width:850px) {
+  .pub-heading {
+  align-items:flex-start;
+  flex-direction:column
+}
+.pub-list li {
+  grid-template-columns:1fr;
+  gap:6px
+}
+.publications {
+  padding:45px 0
+}
+.pub-heading .button {
+  white-space:normal
+}
+
+}
+
+
+.hero-content {
+  width:min(650px,100%);
+  padding:75px 20px
+}
+.hero h1 {
+  font:400 clamp(30px,3.25vw,48px)/1.25 Georgia,serif;
+  letter-spacing:.2px;
+  margin:0 0 25px
+}
+.hero-content:before {
+  inset:35px -15px;
+  background:radial-gradient(ellipse,#102330bb,transparent 75%)
+}
+.hero-themes {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:17px;
+  flex-wrap:wrap;
+  font:14px/1.6 'Courier New',monospace
+}
+.hero-themes a {
+  color:#d9e6ed;
+  text-decoration:none;
+  border-bottom:1px solid #8eafb65c;
+  padding-bottom:4px
+}
+.hero-themes a:hover {
+  color:#ead4a7;
+  border-color:#ead4a7
+}
+.hero-themes>span {
+  color:#a8b9c1
+}
+@media(max-width:650px) {
+  .hero-themes {
+  gap:10px;
+  font-size:12px
+}
+.hero-content {
+  background:#102330aa
+}
+.hero h1 {
+  font-size:34px
+}
+.hero-themes>span {
+  display:none
+}
+
+}
+
+
+/* Laboratory identity and unified navigation */
+header {
+  background:#faf9f6f5;
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #ddd8d0
+}
+.nav {
+  min-height:94px;
+  gap:24px
+}
+.brand {
+  gap:14px
+}
+.brand strong {
+  font:600 21px/1.3 Georgia,serif;
+  color:#213b48
+}
+.brand small {
+  font-size:9px;
+  letter-spacing:1.4px;
+  margin-top:5px;
+  color:#6c777a
+}
+.lab-symbol {
+  position:relative;
+  display:block;
+  width:40px;
+  height:40px;
+  border:1px solid #a68a5e;
+  border-radius:50%;
+  flex-shrink:0;
+  transform:rotate(-25deg)
+}
+.lab-symbol:before,.lab-symbol:after {
+  content:'';
+  position:absolute;
+  inset:7px -3px;
+  border:1px solid #829da7;
+  border-radius:50%;
+  transform:rotate(55deg)
+}
+.lab-symbol:after {
+  transform:rotate(-35deg)
+}
+.lab-symbol i {
+  position:absolute;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#a68a5e;
+  left:16px;
+  top:16px
+}
+.lab-symbol i:nth-child(2) {
+  left:-2px;
+  top:12px;
+  background:#7595a1
+}
+.lab-symbol i:nth-child(3) {
+  left:31px;
+  top:26px;
+  background:#7595a1
+}
+
+nav {
+  gap:3px;
+  background:#e9e8e245;
+  padding:5px;
+  border:1px solid #dfded5;
+  border-radius:8px
+}
+nav a {
+  padding:8px 11px;
+  border-radius:5px;
+  font:12px/1.5 Arial,sans-serif;
+  color:#40535b
+}
+nav a:hover,nav a:focus-visible {
+  background:#e2e6e5;
+  color:#213b48;
+  text-decoration:none
+}
+nav a[href='#home'] {
+  background:#fff;
+  box-shadow:0 1px 4px #192c3810
+}
+.menu {
+  border-radius:6px;
+  color:#213b48
+}
+
+.hero {
+  min-height:580px
+}
+.hero-content {
+  width:min(860px,100%);
+  padding:100px 24px
+}
+.hero h1 {
+  font:400 clamp(32px,4vw,54px)/1.18 Georgia,serif;
+  letter-spacing:-.7px;
+  margin:20px 0 35px
+}
+.hero-content:before {
+  inset:25px -10px;
+  background:radial-gradient(ellipse,#102330aa,transparent 75%)
+}
+.lab-eyebrow {
+  font:10px/1.6 Arial,sans-serif;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:#b6c8ce
+}
+.hero-themes {
+  gap:0;
+  flex-wrap:nowrap;
+  align-items:stretch
+}
+.hero-themes a {
+  font:13px/1.7 Arial,sans-serif;
+  letter-spacing:.2px;
+  padding:0 25px;
+  border:0;
+  color:#cbdde3
+}
+.hero-themes a+a {
+  border-left:1px solid #77939d66
+}
+.hero-themes a:hover {
+  color:#efdbb3
+}
+
+.research-quote {
+  max-width:790px;
+  margin:54px auto 0;
+  text-align:center;
+  padding:26px 30px 0;
+  border-top:1px solid #d6c8cb
+}
+.research-quote blockquote {
+  font:italic 23px/1.65 Georgia,serif;
+  color:#4d3941;
+  margin:0 0 14px
+}
+.research-quote figcaption {
+  font:12px/1.5 Arial,sans-serif;
+  letter-spacing:1px;
+  color:#7a6970
+}
+.themes .card h3 {
+  min-height:92px
+}
+
+@media(max-width:1000px) {
+  .nav {
+  gap:14px
+}
+.brand strong {
+  font-size:18px
+}
+nav a {
+  padding:8px;
+  font-size:11px
+}
+
+}
+@media(max-width:850px) {
+  nav {
+  background:#edece6;
+  width:100%;
+  gap:5px
+}
+.nav {
+  min-height:80px
+}
+.hero {
+  min-height:530px
+}
+.hero-content {
+  padding:80px 20px
+}
+.hero h1 {
+  font-size:40px
+}
+.themes .card h3 {
+  min-height:0
+}
+
+}
+@media(max-width:650px) {
+  .brand strong {
+  font-size:17px
+}
+.brand small {
+  font-size:8px;
+  letter-spacing:.7px
+}
+.hero-content {
+  background:transparent
+}
+.hero h1 {
+  font-size:36px
+}
+.hero-themes {
+  flex-direction:column;
+  gap:18px
+}
+.hero-themes a {
+  font-size:13px;
+  padding:0 12px
+}
+.hero-themes a+a {
+  border:0
+}
+.lab-eyebrow {
+  font-size:9px;
+  letter-spacing:2px
+}
+.research-quote {
+  padding:25px 0 0
+}
+.research-quote blockquote {
+  font-size:20px
+}
+
+}
+
+
+/* High-contrast navigation and simplified banner hierarchy */
+nav {
+  background:#243d4b;
+  border-color:#243d4b;
+  padding:6px;
+  box-shadow:0 3px 12px #12263314;
+  gap:4px
+}
+nav a {
+  color:#eef3f5;
+  padding:9px 12px;
+  font-size:12px
+}
+nav a:hover,nav a:focus-visible {
+  color:#fff;
+  background:#466271
+}
+nav a[href='#home'] {
+  background:#e8d7b5;
+  color:#233b48;
+  box-shadow:none
+}
+.hero {
+  min-height:600px
+}
+.hero-content {
+  padding:90px 24px
+}
+.hero h1 {
+  margin:0 0 18px
+}
+.hero-affiliation {
+  font:13px/1.6 Arial,sans-serif!important;
+  letter-spacing:1.4px;
+  color:#c8d7dd!important;
+  margin:0 0 27px!important
+}
+.hero-themes {
+  flex-direction:row;
+  gap:16px;
+  align-items:center;
+  justify-content:center
+}
+.hero-themes a {
+  padding:0;
+  border:0!important;
+  font-size:14px
+}
+.hero-themes>span {
+  display:inline;
+  color:#7c98a6
+}
+.research-quote {
+  width:100%;
+  max-width:none;
+  margin:30px 0 0;
+  padding:23px 0 0;
+  text-align:left;
+  border-color:#e0d5da
+}
+.research-quote blockquote {
+  font-size:19px;
+  line-height:1.65
+}
+.research-quote figcaption {
+  font-size:11px
+}
+.intro {
+  margin-bottom:36px
+}
+
+@media(max-width:850px) {
+  nav {
+  background:#243d4b
+}
+.hero {
+  min-height:560px
+}
+
+}
+@media(max-width:650px) {
+  .hero h1 {
+  font-size:34px
+}
+.hero-themes {
+  flex-direction:row;
+  flex-wrap:wrap;
+  gap:10px
+}
+.hero-themes a {
+  font-size:12px
+}
+.hero-affiliation {
+  font-size:11px!important;
+  letter-spacing:.8px
+}
+.hero-themes>span {
+  display:inline
+}
+
+}
+
+nav {
+  background:#470414;
+  border-color:#470414;
+  box-shadow:0 3px 12px #590e221a
+}
+nav a {
+  color:#fff0f3
+}
+nav a:hover,nav a:focus-visible {
+  background:#823247;
+  color:#fff
+}
+nav a[href='#home'] {
+  background:#f0dfe2;
+  color:#590e22
+}
+.research-quote blockquote {
+  font-size:15px;
+  line-height:1.7
+}
+.research-quote figcaption {
+  font-size:10px
+}
+.research-quote {
+  margin-top:24px;
+  padding-top:18px
+}
+.hero-content:before {
+  background:radial-gradient(ellipse,#102330c9,transparent 73%)
+}
+@media(max-width:850px) {
+  nav {
+  background:#590e22
+}
+
+}
+@media(max-width:650px) {
+  .research-quote blockquote {
+  font-size:14px
+}
+
+}
+
+
+.dedicated-logo {
+  width:51px;
+  height:51px;
+  flex-shrink:0
+}
+.brand {
+  gap:1px
+}
+.hero {
+  background:var(--maroon)
+}
+.hero-content:before {
+  background:radial-gradient(ellipse,#500b19aa,transparent 75%)
+}
+.page-main {
+  padding:70px 0 90px;
+  min-height:70vh;
+  background:linear-gradient(145deg,#faf7f7,#f2f5f6)
+}
+.page-main h1 {
+  font:400 clamp(34px,4vw,48px)/1.2 Georgia,serif;
+  color:var(--maroon);
+  margin:0 0 15px
+}
+.page-kicker {
+  color:#786670;
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:17px
+}
+.page-lead {
+  font-size:18px;
+  color:#61717a;
+  max-width:680px
+}
+.profile-layout {
+  display:grid;
+  grid-template-columns:1.5fr 1fr;
+  gap:40px;
+  margin-top:35px
+}
+.profile-panel,.contact-panel {
+  padding:32px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:4px
+}
+.profile-panel h2,.contact-panel h2 {
+  font-size:23px
+}
+.profile-panel p,.contact-panel p {
+  color:#65717b
+}
+.contact-links {
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:25px
+}
+.contact-panel {
+  max-width:800px;
+  margin-top:32px
+}
+.page-main a {
+  overflow-wrap:anywhere
+}
+.profile-panel h3 {
+  font:600 20px Georgia,serif
+}
+.profile-panel .timeline li {
+  line-height:1.8
+}
+.page-main nav a {
+  color:white
+}
+@media(max-width:850px) {
+  .profile-layout {
+  grid-template-columns:1fr;
+  gap:20px
+}
+.page-main {
+  padding:45px 0
+}
+.profile-panel,.contact-panel {
+  padding:24px
+}
+.dedicated-logo {
+  width:43px;
+  height:43px
+}
+
+}
+
+.hero {
+  background:#0b1c29
+}
+.hero-content:before {
+  background:radial-gradient(ellipse,#102330aa,transparent 75%)
+}
+
+[hidden] {
+  display:none!important
+}
+
+nav a[href='#home'] {
+  background:transparent;
+  color:#fff0f3
+}
+
+nav a[aria-current='page'] {
+  background:#f0dfe2;
+  color:#590e22
+}
+
+#main > .route-view { display: none; }
+#main > .route-view:target { display: block; }
+body:has(#skg:target) #main > section:not(.route-view),
+body:has(#contact:target) #main > section:not(.route-view) { display: none; }
+nav a[href='#home'] { background: transparent; color: #fff0f3; }
+body:has(#skg:target) nav a[href='#skg'],
+body:has(#research:target) nav a[href='#research'],
+body:has(#publications:target) nav a[href='#publications'],
+body:has(#contact:target) nav a[href='#contact'],
+body:has(#home:target) nav a[href='#home'] { background: #f0dfe2; color: #590e22; }
+body:has(#research:target) #main > section:not(.route-view),
+body:has(#publications:target) #main > section:not(.route-view) {display: none;}
+#main > #research:target,
+#main > #publications:target {
+  display: block;
+  min-height: 75vh;
+}
+  
+#main > .route-view:has(:target) { display: block; }
+body:has(.route-view :target) #main > section:not(.route-view) { display: none;}
+body:has(#research :target) nav a[href='#research'] { background: #f0dfe2; color: #590e22; }
+.header-ml-corner {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: min(47vw, 690px);
+  height: auto;
+  display: block;
+  pointer-events: none;
+  overflow: hidden;
+}
+@media (max-width: 650px) {
+  .header-ml-corner { width: 65vw; opacity: .7; }
+}
+   .header-ml-corner { width: min(49vw, 740px); }
+.home-intro { padding: 65px 0 75px; background: #faf8f7; }
+.home-intro .wrap { max-width: 900px; text-align: center; }
+.home-intro h2 { font: 400 clamp(26px,3vw,34px)/1.35 Georgia,serif; }
+.home-intro p { color: #65717b; font-size: 17px; line-height: 1.9; margin: 20px 0 25px; }
+.home-intro a { text-decoration: none; font-size: 14px; border-bottom: 1px solid #b29aa2; padding-bottom: 5px; }
+.profile-links { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin: 24px 0 34px; font-size:14px; }
+.profile-links a { text-decoration:none; }
+.profile-links span { color:#baa9b0; }
+@media(max-width:650px) { .header-ml-corner { width: 80vw; opacity:.65; } .home-intro { padding:45px 0; } }
+.hero { isolation: isolate; }
+.hero > .hero-art { z-index: 0; }
+.hero > .header-ml-corner {
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+  visibility: visible;
+}
+.hero > .hero-content { z-index: 2; }
+@media (max-width: 650px) {
+  .hero > .header-ml-corner { opacity: .8; }
+}
+  </style>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <header>
+   <div class="wrap nav">
+      <a aria-label="Giri Research Laboratory home" class="brand" href="#home">
+      <img src="giri_logo.png"  alt="Giri Research Laboratory logo" class="dedicated-logo" width="51" height="51">
+      <path d="M175 63A80 80 0 1 0 194 151V119H125" fill="none" stroke="#500b19" stroke-linecap="square" stroke-linejoin="round" stroke-width="19">
+      </path>
+      <path d="M147 149L207 211" fill="none" stroke="#500b19" stroke-linecap="square" stroke-width="15">
+      </path>
+     </svg>
+     <span>
+      <strong>
+       Giri Research Laboratory
+      </strong>
+      <small>
+       Quantum Light-Matter · Machine Learning
+      </small>
+     </span>
+    </a>
+    <button aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation" class="menu" type="button">
+     ☰
+    </button>
+    <nav aria-label="Main navigation" id="navigation">
+     <a href="#home">
+      Home
+     </a>
+     <a href="#skg">
+      SKG
+     </a>
+     <a href="#research">
+      Research
+     </a>
+     <a href="#publications">
+      Publications
+     </a>
+     <a href="#contact">
+      Contact
+     </a>
+    </nav>
+   </div>
+  </header>
+  <main id="main">
+   <section aria-labelledby="welcome" class="hero" id="home">
+    <svg aria-hidden="true" class="hero-art" preserveaspectratio="xMidYMid slice" viewbox="0 0 1440 620">
+     <defs>
+      <radialgradient id="labBg">
+       <stop stop-color="#263e4c">
+       </stop>
+       <stop offset="1" stop-color="#0b1c29">
+       </stop>
+      </radialgradient>
+     </defs>
+     <path d="M0 0h1440v620H0z" fill="url(#labBg)">
+     </path>
+     <g transform="translate(210 180) rotate(-45) scale(1.3)">
+      <defs>
+       <radialgradient cx="30%" cy="24%" id="heroGold">
+        <stop stop-color="#f4dfac">
+        </stop>
+        <stop offset=".55" stop-color="#c8a263">
+        </stop>
+        <stop offset="1" stop-color="#78603a">
+        </stop>
+       </radialgradient>
+       <radialgradient id="heroGlow">
+        <stop stop-color="#7dbfc8" stop-opacity=".2">
+        </stop>
+        <stop offset="1" stop-color="#7dbfc8" stop-opacity="0">
+        </stop>
+       </radialgradient>
+      </defs>
+      <ellipse cx="0" cy="0" fill="url(#heroGlow)" rx="162" ry="140">
+      </ellipse>
+      <g fill="none" opacity=".65" stroke="#79aeb8" stroke-width="1.4">
+       <ellipse rx="107" ry="80">
+       </ellipse>
+       <ellipse rx="137" ry="111">
+       </ellipse>
+      </g>
+      <circle fill="url(#heroGold)" r="53">
+      </circle>
+      <g fill="none" opacity=".7" stroke="#8fbdc6" stroke-width="1.5">
+       <path d="M-93 -66 Q10.5 -111.5 58 -87">
+       </path>
+       <path d="M-30 -103 Q56.0 -53.0 86 67">
+       </path>
+       <path d="M58 -87 Q62.5 -22.5 11 112">
+       </path>
+       <path d="M109 -25 Q44.5 -6.5 -76 82">
+       </path>
+       <path d="M86 67 Q33.0 39.5 -76 82">
+       </path>
+       <path d="M-93 -66 Q-13.0 -12.0 11 112">
+       </path>
+      </g>
+      <circle cx="-93" cy="-66" fill="#a9d2d8" r="6">
+      </circle>
+      <circle cx="-30" cy="-103" fill="#a9d2d8" r="7">
+      </circle>
+      <circle cx="58" cy="-87" fill="#a9d2d8" r="8">
+      </circle>
+      <circle cx="109" cy="-25" fill="#a9d2d8" r="6">
+      </circle>
+      <circle cx="86" cy="67" fill="#a9d2d8" r="7">
+      </circle>
+      <circle cx="11" cy="112" fill="#a9d2d8" r="8">
+      </circle>
+      <circle cx="-76" cy="82" fill="#a9d2d8" r="6">
+      </circle>
+      <marker id="heroLightArrow" markerheight="4" markerwidth="4" orient="auto" refx="8" refy="5" viewbox="0 0 10 10">
+       <path d="M0 1 9 5 0 9z" fill="#8f1934">
+       </path>
+      </marker>
+      <g transform="rotate(90)">
+       <path d="M-192 0q8-19 16 0t16 0t16 0t16 0t16 0t16 0h18" fill="none" marker-end="url(#heroLightArrow)" stroke="#8f1934" stroke-width="2.5">
+       </path>
+      </g>
+     </g>
+    </svg>
+    <svg aria-hidden="true" class="header-ml-corner" preserveaspectratio="xMaxYMax meet" viewbox="0 0 520 420">
+     <g fill="none" stroke="#abcbd5" stroke-width="1.5">
+      <circle cx="520" cy="420" opacity="0.70" r="88">
+      </circle>
+      <circle cx="520" cy="420" opacity="0.64" r="148">
+      </circle>
+      <circle cx="520" cy="420" opacity="0.58" r="213">
+      </circle>
+      <circle cx="520" cy="420" opacity="0.52" r="282">
+      </circle>
+      <circle cx="520" cy="420" opacity="0.46" r="354">
+      </circle>
+      <circle cx="520" cy="420" opacity="0.40" r="432">
+      </circle>
+     </g>
+     <g fill="#b7d7df">
+      <circle cx="307.2" cy="288.8" opacity="0.65" r="4.6">
+      </circle>
+      <circle cx="358.0" cy="251.5" opacity="0.69" r="3.1">
+      </circle>
+      <circle cx="411.0" cy="415.9" opacity="0.93" r="3.9">
+      </circle>
+      <circle cx="301.8" cy="214.1" opacity="0.90" r="6.2">
+      </circle>
+      <circle cx="417.0" cy="292.5" opacity="0.66" r="4.8">
+      </circle>
+      <circle cx="514.7" cy="340.9" opacity="0.81" r="4.3">
+      </circle>
+      <circle cx="341.2" cy="173.1" opacity="0.61" r="5.7">
+      </circle>
+      <circle cx="311.7" cy="408.4" opacity="0.67" r="4.3">
+      </circle>
+      <circle cx="405.1" cy="289.7" opacity="0.90" r="5.3">
+      </circle>
+      <circle cx="157.5" cy="290.4" opacity="0.77" r="5.7">
+      </circle>
+      <circle cx="428.0" cy="255.9" opacity="0.61" r="5.7">
+      </circle>
+      <circle cx="405.9" cy="284.1" opacity="0.52" r="4.9">
+      </circle>
+      <circle cx="166.9" cy="231.5" opacity="0.83" r="3.9">
+      </circle>
+      <circle cx="419.2" cy="110.3" opacity="0.59" r="5.2">
+      </circle>
+      <circle cx="342.2" cy="396.8" opacity="0.75" r="5.8">
+      </circle>
+      <circle cx="435.4" cy="182.3" opacity="0.51" r="6.2">
+      </circle>
+      <circle cx="207.2" cy="281.7" opacity="0.80" r="4.8">
+      </circle>
+      <circle cx="247.4" cy="170.5" opacity="0.64" r="5.8">
+      </circle>
+      <circle cx="350.6" cy="414.1" opacity="0.95" r="4.2">
+      </circle>
+      <circle cx="496.2" cy="58.3" opacity="0.91" r="3.6">
+      </circle>
+      <circle cx="398.7" cy="395.3" opacity="0.65" r="5.7">
+      </circle>
+      <circle cx="373.3" cy="316.1" opacity="0.56" r="3.0">
+      </circle>
+      <circle cx="446.5" cy="412.2" opacity="0.58" r="3.1">
+      </circle>
+      <circle cx="328.4" cy="221.2" opacity="0.87" r="5.7">
+      </circle>
+      <circle cx="312.5" cy="193.2" opacity="0.53" r="3.0">
+      </circle>
+      <circle cx="402.6" cy="408.7" opacity="0.52" r="3.3">
+      </circle>
+      <circle cx="410.6" cy="292.8" opacity="0.74" r="6.1">
+      </circle>
+      <circle cx="264.8" cy="121.3" opacity="0.95" r="5.2">
+      </circle>
+      <circle cx="246.0" cy="385.1" opacity="0.93" r="4.9">
+      </circle>
+      <circle cx="347.1" cy="288.7" opacity="0.88" r="4.1">
+      </circle>
+      <circle cx="430.1" cy="333.1" opacity="0.55" r="6.4">
+      </circle>
+      <circle cx="218.0" cy="152.7" opacity="0.70" r="5.9">
+      </circle>
+      <circle cx="271.2" cy="115.4" opacity="0.86" r="3.2">
+      </circle>
+      <circle cx="428.1" cy="160.0" opacity="0.61" r="3.4">
+      </circle>
+      <circle cx="477.0" cy="290.2" opacity="0.54" r="3.1">
+      </circle>
+      <circle cx="322.6" cy="246.2" opacity="0.75" r="4.0">
+      </circle>
+      <circle cx="480.2" cy="347.7" opacity="0.72" r="3.9">
+      </circle>
+      <circle cx="119.3" cy="376.7" opacity="0.82" r="6.1">
+      </circle>
+      <circle cx="345.6" cy="180.8" opacity="0.76" r="5.8">
+      </circle>
+      <circle cx="233.9" cy="203.7" opacity="0.83" r="6.1">
+      </circle>
+      <circle cx="498.2" cy="124.0" opacity="0.55" r="4.3">
+      </circle>
+      <circle cx="433.9" cy="217.5" opacity="0.89" r="4.2">
+      </circle>
+      <circle cx="480.7" cy="84.7" opacity="0.59" r="3.9">
+      </circle>
+      <circle cx="112.1" cy="280.9" opacity="0.93" r="5.9">
+      </circle>
+      <circle cx="215.0" cy="163.4" opacity="0.80" r="4.1">
+      </circle>
+      <circle cx="256.8" cy="354.5" opacity="0.89" r="3.1">
+      </circle>
+      <circle cx="294.8" cy="180.1" opacity="0.63" r="6.0">
+      </circle>
+      <circle cx="500.3" cy="139.2" opacity="0.64" r="4.8">
+      </circle>
+      <circle cx="193.4" cy="408.2" opacity="0.89" r="6.1">
+      </circle>
+      <circle cx="477.1" cy="104.5" opacity="0.78" r="5.1">
+      </circle>
+      <circle cx="291.7" cy="217.6" opacity="0.67" r="5.4">
+      </circle>
+      <circle cx="192.2" cy="397.9" opacity="0.54" r="3.6">
+      </circle>
+      <circle cx="391.0" cy="322.8" opacity="0.77" r="3.6">
+      </circle>
+     </g>
+    </svg>
+    <div class="hero-content">
+     <h1 id="welcome">
+      Giri Research Laboratory
+     </h1>
+     <p class="hero-affiliation">
+      IISER Mohali · Chemical Sciences
+     </p>
+     <div aria-label="Research themes" class="hero-themes">
+      <a href="#light-matter">
+       Quantum Light-Matter
+      </a>
+      <span aria-hidden="true">
+       |
+      </span>
+      <a href="#machine-learning">
+       Machine Learning
+      </a>
+     </div>
+    </div>
+   </section>
+
+
+
+
+
+
+   <section aria-labelledby="intro-title" class="home-intro">
+    <div class="wrap">
+     <span class="section-label">
+      Quantum Light-Matter · Machine Learning
+     </span>
+     <h2 id="intro-title">
+      Understanding and controlling light induced quantum processes
+     </h2>
+     <p>
+      We develop theoretical and computational methods for novel quantum spectroscopy and dynamics. 
+      Our work brings together quantum light-matter and machine learning to explore light induced processes in molecules and nanoscale materials.
+     </p>
+     <a href="#research">
+      Explore our research
+     </a>
+    </div>
+   </section>
+
+
+
+
+
+
+   <section aria-labelledby="research-heading" class="research route-view" id="research" tabindex="-1">
+    <div class="wrap">
+     <div class="intro">
+      <h2 id="research-heading">
+       Research
+      </h2>
+      <p>
+      We develop theoretical and computational methods for novel quantum spectroscopy and dynamics. 
+      Our work brings together quantum light-matter and machine learning to explore light induced processes in molecules and nanoscale materials.
+      </p>
+     </div>
+     <div class="cards themes" id="topics">
+      <article aria-labelledby="light-heading" class="card" id="light-matter">
+       <h3 id="light-heading">
+        Quantum Spectroscopy and Dynamics at the Nanoscale
+       </h3>
+       <svg aria-label="Conceptual nanoparticle coupled to correlated excitonic sites, illuminated by a sinusoidal light wave" class="visual" role="img" viewbox="0 0 600 300">
+        <rect fill="#dce8ed" height="300" width="600">
+        </rect>
+        <g transform="translate(300 150)">
+         <defs>
+          <radialgradient cx="30%" cy="24%" id="themeGold">
+           <stop stop-color="#f4dfac">
+           </stop>
+           <stop offset=".55" stop-color="#c8a263">
+           </stop>
+           <stop offset="1" stop-color="#78603a">
+           </stop>
+          </radialgradient>
+          <radialgradient id="themeGlow">
+           <stop stop-color="#7dbfc8" stop-opacity=".2">
+           </stop>
+           <stop offset="1" stop-color="#7dbfc8" stop-opacity="0">
+           </stop>
+          </radialgradient>
+         </defs>
+         <ellipse cx="0" cy="0" fill="url(#themeGlow)" rx="162" ry="140">
+         </ellipse>
+         <g fill="none" opacity=".9" stroke="#377e93" stroke-width="1.4">
+          <ellipse rx="107" ry="80">
+          </ellipse>
+          <ellipse rx="137" ry="111">
+          </ellipse>
+         </g>
+         <circle fill="url(#themeGold)" r="53">
+         </circle>
+         <g fill="none" opacity=".9" stroke="#46869b" stroke-width="1.5">
+          <path d="M-93 -66 Q10.5 -111.5 58 -87">
+          </path>
+          <path d="M-30 -103 Q56.0 -53.0 86 67">
+          </path>
+          <path d="M58 -87 Q62.5 -22.5 11 112">
+          </path>
+          <path d="M109 -25 Q44.5 -6.5 -76 82">
+          </path>
+          <path d="M86 67 Q33.0 39.5 -76 82">
+          </path>
+          <path d="M-93 -66 Q-13.0 -12.0 11 112">
+          </path>
+         </g>
+         <circle cx="-93" cy="-66" fill="#559db1" r="6">
+         </circle>
+         <circle cx="-30" cy="-103" fill="#559db1" r="7">
+         </circle>
+         <circle cx="58" cy="-87" fill="#559db1" r="8">
+         </circle>
+         <circle cx="109" cy="-25" fill="#559db1" r="6">
+         </circle>
+         <circle cx="86" cy="67" fill="#559db1" r="7">
+         </circle>
+         <circle cx="11" cy="112" fill="#559db1" r="8">
+         </circle>
+         <circle cx="-76" cy="82" fill="#559db1" r="6">
+         </circle>
+         <marker id="themeLightArrow" markerheight="4" markerwidth="4" orient="auto" refx="8" refy="5" viewbox="0 0 10 10">
+          <path d="M0 1 9 5 0 9z" fill="#8f1934">
+          </path>
+         </marker>
+         <g transform="rotate(45)">
+          <path d="M-192 0q8-19 16 0t16 0t16 0t16 0t16 0t16 0h18" fill="none" marker-end="url(#themeLightArrow)" stroke="#8f1934" stroke-width="2.5">
+          </path>
+         </g>
+        </g>
+       </svg>
+       <p>
+        We are interested in light-induced quantum processes in molecules and nanoscale materials. 
+        These include the generation and transfer of quantum coherence and entanglement, their influence on charge and energy transfer, and their role in spectroscopy. 
+        We explore how confined photonic environments and the quantum nature of light can provide new ways to probe, understand, and control these processes.
+       </p>
+      </article>
+      <article aria-labelledby="ml-heading" class="card" id="machine-learning">
+       <h3 id="ml-heading">
+        Machine Learning for Quantum Light-Matter
+       </h3>
+       <svg aria-label="Conceptual generative model: samples from a latent distribution pass through a decoder to produce possible quantum dynamics" class="visual" role="img" viewbox="0 0 600 300">
+        <rect fill="#e6dce7" height="300" width="600">
+        </rect>
+        <g fill="none" stroke="#8198a3" stroke-width="1.1">
+         <ellipse cx="100" cy="150" rx="66" ry="76">
+         </ellipse>
+         <ellipse cx="100" cy="150" rx="46" ry="53">
+         </ellipse>
+         <ellipse cx="100" cy="150" rx="25" ry="29">
+         </ellipse>
+        </g>
+        <g fill="#84426e">
+         <circle cx="86" cy="132" r="4">
+         </circle>
+         <circle cx="112" cy="145" r="4">
+         </circle>
+         <circle cx="99" cy="166" r="4">
+         </circle>
+         <circle cx="124" cy="172" r="4">
+         </circle>
+         <circle cx="78" cy="157" r="4">
+         </circle>
+         <circle cx="105" cy="113" r="4">
+         </circle>
+         <circle cx="126" cy="131" r="4">
+         </circle>
+         <circle cx="89" cy="183" r="4">
+         </circle>
+         <circle cx="65" cy="140" r="4">
+         </circle>
+        </g>
+        <circle cx="112" cy="145" fill="#84426e" r="7">
+        </circle>
+        <path d="M123 145h63m-7-5 7 5-7 5" fill="none" stroke="#9b8f9f" stroke-width="1.5">
+        </path>
+        <g fill="none" stroke="#9c769f" stroke-width="1.1">
+         <path d="M210 127 267 100">
+         </path>
+         <path d="M210 127 267 150">
+         </path>
+         <path d="M210 127 267 200">
+         </path>
+         <path d="M210 173 267 100">
+         </path>
+         <path d="M210 173 267 150">
+         </path>
+         <path d="M210 173 267 200">
+         </path>
+         <path d="M267 100 325 78">
+         </path>
+         <path d="M267 100 325 126">
+         </path>
+         <path d="M267 100 325 174">
+         </path>
+         <path d="M267 100 325 222">
+         </path>
+         <path d="M267 150 325 78">
+         </path>
+         <path d="M267 150 325 126">
+         </path>
+         <path d="M267 150 325 174">
+         </path>
+         <path d="M267 150 325 222">
+         </path>
+         <path d="M267 200 325 78">
+         </path>
+         <path d="M267 200 325 126">
+         </path>
+         <path d="M267 200 325 174">
+         </path>
+         <path d="M267 200 325 222">
+         </path>
+        </g>
+        <g fill="#84426e" stroke="#fff" stroke-width="1.5">
+         <circle cx="210" cy="127" r="8">
+         </circle>
+         <circle cx="210" cy="173" r="8">
+         </circle>
+         <circle cx="267" cy="100" r="8">
+         </circle>
+         <circle cx="267" cy="150" r="8">
+         </circle>
+         <circle cx="267" cy="200" r="8">
+         </circle>
+         <circle cx="325" cy="78" r="8">
+         </circle>
+         <circle cx="325" cy="126" r="8">
+         </circle>
+         <circle cx="325" cy="174" r="8">
+         </circle>
+         <circle cx="325" cy="222" r="8">
+         </circle>
+        </g>
+        <g fill="none" stroke="#a99bab" stroke-width="1.5">
+         <path d="M342 150h56m-6-5 6 5-6 5">
+         </path>
+        </g>
+        <g fill="none" stroke-width="1.6">
+         <polyline opacity="1" points="
+                                  410.0,150.0 411.0,153.6 412.0,157.1 413.0,160.3 414.0,163.2
+      415.0,165.7       416.0,167.8       417.0,169.4 418.0,170.4 419.0,170.9 420.0,170.9
+      421.0,170.3 422.0,169.3       423.0,167.7       424.0,165.8 425.0,163.5 426.0,160.8
+      427.0,158.0 428.0,155.0 429.0,151.9       430.0,148.9       431.0,145.9 432.0,143.1
+      433.0,140.5 434.0,138.2 435.0,136.3 436.0,134.7       437.0,133.6       438.0,132.9
+      439.0,132.6 440.0,132.8 441.0,133.4 442.0,134.4 443.0,135.8       444.0,137.6
+      445.0,139.6 446.0,141.8 447.0,144.3 448.0,146.8 449.0,149.3 450.0,151.8       451.0,154.3
+      452.0,156.5 453.0,158.6 454.0,160.4 455.0,161.9 456.0,163.1 457.0,163.9       458.0,164.3
+      459.0,164.4 460.0,164.1 461.0,163.5 462.0,162.5 463.0,161.3 464.0,159.7       465.0,158.0
+      466.0,156.0 467.0,154.0 468.0,151.9 469.0,149.8 470.0,147.7 471.0,145.8       472.0,143.9
+      473.0,142.3 474.0,140.9 475.0,139.7 476.0,138.9 477.0,138.3 478.0,138.0       479.0,138.1
+      480.0,138.4 481.0,139.1 482.0,140.0 483.0,141.1 484.0,142.5 485.0,144.0       486.0,145.6
+      487.0,147.3 488.0,149.1 489.0,150.8 490.0,152.5 491.0,154.1 492.0,155.5       493.0,156.8
+      494.0,157.9 495.0,158.8 496.0,159.4 497.0,159.8 498.0,159.9 499.0,159.8       500.0,159.4
+      501.0,158.8 502.0,158.0 503.0,157.0 504.0,155.8 505.0,154.5 506.0,153.1       507.0,151.7
+      508.0,150.3 509.0,148.8 510.0,147.4 511.0,146.2 512.0,145.0 513.0,144.0       514.0,143.1
+      515.0,142.5 516.0,142.0 517.0,141.8 518.0,141.8 519.0,142.0 520.0,142.3       521.0,142.9
+      522.0,143.7 523.0,144.5 524.0,145.6 525.0,146.7 526.0,147.8 527.0,149.0       528.0,150.2
+      529.0,151.4 530.0,152.5 531.0,153.5 532.0,154.5 533.0,155.3 534.0,155.9       535.0,156.4
+      536.0,156.7 537.0,156.8 538.0,156.8 539.0,156.6 540.0,156.2 541.0,155.7       542.0,155.0
+      543.0,154.2 544.0,153.4 545.0,152.4 546.0,151.4 547.0,150.4 548.0,149.5       549.0,148.5
+      550.0,147.6
+    " stroke="#84426e">
+         </polyline>
+         <polyline opacity="0.4" points="
+                                  410.0,169.2 411.0,172.0 412.0,174.4 413.0,176.3 414.0,177.6
+      415.0,178.4       416.0,178.7       417.0,178.4 418.0,177.5 419.0,176.2 420.0,174.4
+      421.0,172.2 422.0,169.6       423.0,166.8       424.0,163.7 425.0,160.6 426.0,157.4
+      427.0,154.3 428.0,151.3 429.0,148.5       430.0,146.0       431.0,143.8 432.0,142.0
+      433.0,140.5 434.0,139.6 435.0,139.1 436.0,139.0       437.0,139.5       438.0,140.3
+      439.0,141.6 440.0,143.2 441.0,145.2 442.0,147.4 443.0,149.8       444.0,152.4
+      445.0,155.0 446.0,157.6 447.0,160.2 448.0,162.6 449.0,164.8 450.0,166.8       451.0,168.6
+      452.0,169.9 453.0,171.0 454.0,171.6 455.0,171.9 456.0,171.8 457.0,171.3       458.0,170.5
+      459.0,169.3 460.0,167.9 461.0,166.2 462.0,164.3 463.0,162.2 464.0,160.1       465.0,157.9
+      466.0,155.7 467.0,153.6 468.0,151.7 469.0,149.9 470.0,148.3 471.0,147.0       472.0,145.9
+      473.0,145.2 474.0,144.7 475.0,144.6 476.0,144.8 477.0,145.3 478.0,146.1       479.0,147.2
+      480.0,148.5 481.0,150.0 482.0,151.6 483.0,153.3 484.0,155.1 485.0,156.9       486.0,158.7
+      487.0,160.4 488.0,162.0 489.0,163.4 490.0,164.7 491.0,165.7 492.0,166.5       493.0,167.0
+      494.0,167.2 495.0,167.2 496.0,167.0 497.0,166.5 498.0,165.7 499.0,164.8       500.0,163.6
+      501.0,162.4 502.0,161.0 503.0,159.5 504.0,158.0 505.0,156.5 506.0,155.1       507.0,153.7
+      508.0,152.4 509.0,151.3 510.0,150.3 511.0,149.5 512.0,149.0 513.0,148.6       514.0,148.5
+      515.0,148.6 516.0,148.9 517.0,149.4 518.0,150.0 519.0,150.9 520.0,151.9       521.0,153.0
+      522.0,154.1 523.0,155.4 524.0,156.6 525.0,157.8 526.0,159.0 527.0,160.1       528.0,161.2
+      529.0,162.0 530.0,162.8 531.0,163.4 532.0,163.8 533.0,164.0 534.0,164.1       535.0,163.9
+      536.0,163.6 537.0,163.1 538.0,162.5 539.0,161.8 540.0,160.9 541.0,160.0       542.0,159.0
+      543.0,158.0 544.0,156.9 545.0,155.9 546.0,155.0 547.0,154.1 548.0,153.3       549.0,152.6
+      550.0,152.0
+    " stroke="#84426e">
+         </polyline>
+         <polyline opacity="0.4" points="
+                                  410.0,130.8 411.0,134.1 412.0,137.6 413.0,141.2 414.0,144.8
+      415.0,148.2       416.0,151.5       417.0,154.4 418.0,157.1 419.0,159.3 420.0,161.0
+      421.0,162.3 422.0,163.1       423.0,163.3       424.0,163.0 425.0,162.2 426.0,161.0
+      427.0,159.3 428.0,157.2 429.0,154.8       430.0,152.1       431.0,149.3 432.0,146.4
+      433.0,143.4 434.0,140.5 435.0,137.7 436.0,135.1       437.0,132.7       438.0,130.6
+      439.0,128.9 440.0,127.6 441.0,126.7 442.0,126.2 443.0,126.2       444.0,126.6
+      445.0,127.4 446.0,128.6 447.0,130.1 448.0,131.9 449.0,134.0 450.0,136.3       451.0,138.7
+      452.0,141.1 453.0,143.6 454.0,146.0 455.0,148.2 456.0,150.3 457.0,152.2       458.0,153.8
+      459.0,155.1 460.0,156.1 461.0,156.7 462.0,157.0 463.0,156.9 464.0,156.4       465.0,155.6
+      466.0,154.5 467.0,153.2 468.0,151.6 469.0,149.8 470.0,147.9 471.0,145.9       472.0,143.8
+      473.0,141.8 474.0,139.8 475.0,138.0 476.0,136.3 477.0,134.8 478.0,133.6       479.0,132.6
+      480.0,131.9 481.0,131.5 482.0,131.4 483.0,131.6 484.0,132.1 485.0,132.8       486.0,133.8
+      487.0,135.0 488.0,136.4 489.0,137.9 490.0,139.6 491.0,141.2 492.0,142.9       493.0,144.6
+      494.0,146.2 495.0,147.7 496.0,149.0 497.0,150.2 498.0,151.1 499.0,151.8       500.0,152.3
+      501.0,152.6 502.0,152.6 503.0,152.3 504.0,151.8 505.0,151.2 506.0,150.3       507.0,149.2
+      508.0,148.0 509.0,146.7 510.0,145.3 511.0,143.9 512.0,142.5 513.0,141.2       514.0,139.9
+      515.0,138.7 516.0,137.7 517.0,136.8 518.0,136.0 519.0,135.5 520.0,135.2       521.0,135.0
+      522.0,135.1 523.0,135.4 524.0,135.9 525.0,136.5 526.0,137.3 527.0,138.2       528.0,139.2
+      529.0,140.3 530.0,141.5 531.0,142.6 532.0,143.8 533.0,144.9 534.0,145.9       535.0,146.9
+      536.0,147.7 537.0,148.4 538.0,149.0 539.0,149.3 540.0,149.6 541.0,149.6       542.0,149.5
+      543.0,149.2 544.0,148.8 545.0,148.2 546.0,147.5 547.0,146.7 548.0,145.8       549.0,144.9
+      550.0,143.9
+    " stroke="#84426e">
+         </polyline>
+        </g>
+       </svg>
+       <p>
+        We develop machine learning models to explore quantum light-matter interactions in molecules and nanoscale materials. 
+        Our research explores the space of material structures, photonic environments, and quantum properties of light to understand their influence on dynamics and optical responses. 
+        We use ML models to uncover novel physical mechanisms and identify the essential features governing light-matter interactions. 
+        Our goal is to guide the discovery and design of materials with tailored optical properties and functionalities for photonic and quantum technologies.
+      </p>
+       <figure class="research-quote">
+        <blockquote>
+         “It is nice to know that the computer understands the problem, but I would like to understand it too.”
+        </blockquote>
+        <figcaption>
+         — E. Wigner
+        </figcaption>
+       </figure>
+      </article>
+     </div>
+    </div>
+   </section>
+
+
+
+
+
+
+   
+   <section aria-labelledby="publications-heading" class="publications route-view" id="publications" tabindex="-1">
+    <div class="wrap">
+     <div class="pub-heading">
+      <div>
+       <h2 id="publications-heading">
+        Publications
+       </h2>
+      </div>
+     </div>
+     <ol class="pub-list">
+
+
+
+      <li>
+        <span class="pub-year">2026</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1021/acs.nanolett.5c05462">
+              Atomically Precise Nanoclusters as SERS Probes
+            </a>
+          </h3>
+          <p class="pub-authors">
+            S. Manna, A. O. Bhasin, V. Yadav, S. Chowdhury,
+            S. Duary, S. Mondal, <strong>S. K. Giri</strong>,
+            T. Base, G. C. Schatz, and T. Pradeep
+          </p>
+          <p class="pub-journal">
+            <em>Nano Letters 26, 4279-4286</em> (2026).
+            <a href="https://doi.org/10.1021/acs.nanolett.5c05462">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2026</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1021/jacs.5c17689">
+              Quantum Light Imaging of the Plant Root-Rhizobacteria-System
+              Using iLOV Fluorescence
+            </a>
+          </h3>
+          <p class="pub-authors">
+            O. Varnavksi, T.-M. Chiang, <strong>S. K. Giri</strong>,
+            A. N. Bible, J. L. Morrell-Falvey, Y.-Z. Ma,
+            G. C. Schatz, and T. Goodson III
+          </p>
+          <p class="pub-journal">
+            <em>Journal of the American Chemical Society 148, 8236-8245</em>
+            (2026).
+            <a href="https://doi.org/10.1021/jacs.5c17689">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2026</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1021/jacs.5c18709">
+              Plasmon-Assisted Electrochemical Epoxidation
+              using Water as an Oxidant
+            </a>
+          </h3>
+          <p class="pub-authors">
+            L. D. Germano, <strong>S. K. Giri</strong>, C. A. Litts,
+            F. M. Alcorn, G. C. Schatz, S. I. Córdoba de Torresi,
+            and P. K. Jain
+          </p>
+          <p class="pub-journal">
+            <em>Journal of the American Chemical Society 148, 5368-5377</em>
+            (2026).
+            <a href="https://doi.org/10.1021/jacs.5c18709">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2025</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1063/5.0283426">
+              Two-photon absorption with spin-orbit coupling: Methodology and application to fac-Ir(ppy)<sub>3</sub>
+            </a>
+          </h3>
+          <p class="pub-authors">
+            T.-M. Chiang, <strong>S. K. Giri</strong>, and G. C. Schatz
+          </p>
+          <p class="pub-journal">
+            <em>APL Computational Physics 1, 026105</em> (2025).
+            <a href="https://doi.org/10.1063/5.0283426">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2025</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1021/acs.jpcc.5c02818">
+              Density Functional Tight-Binding Enables Tractable
+              Studies of Quantum Plasmonics
+            </a>
+          </h3>
+          <p class="pub-authors">
+            N. S. Chellam, S. Chaudhuri, A. Ghosal,
+            <strong>S. K. Giri</strong>, and G. C. Schatz
+          </p>
+          <p class="pub-journal">
+            <em>The Journal of Physical Chemistry C 129, 13839-13859</em>
+            (2025).
+            <a href="https://doi.org/10.1021/acs.jpcc.5c02818">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2025</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1021/acs.jpclett.5c00836">
+              Enhanced Photochemical Reaction Rates with Entangled Photons
+            </a>
+          </h3>
+          <p class="pub-authors">
+            B. Zhou, T.-M. Chiang, O. Varnavski, <strong>S. K. Giri</strong>, C. Rani, G. C. Schatz, and T. Goodson III
+          </p>
+          <p class="pub-journal">
+            <em>The Journal of Physical Chemistry Letters 16, 4372-4381</em>
+            (2025).
+            <a href="https://doi.org/10.1021/acs.jpclett.5c00836">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2025</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1063/5.0254272">
+              Modeling entanglement dynamics of molecules interacting with entangled photons through Lindblad master equation approach
+            </a>
+          </h3>
+          <p class="pub-authors">
+            <strong>S. K. Giri</strong> and G. C. Schatz
+          </p>
+          <p class="pub-journal">
+            <em>The Journal of Chemical Physics 162, 114106</em> (2025).
+            <a href="https://doi.org/10.1063/5.0254272">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2025</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1021/acs.jctc.4c01302">
+              Plasmon Dynamics in Nanoclusters: Dephasing Revealed by Excited States Evaluation
+            </a>
+          </h3>
+          <p class="pub-authors">
+            A. O. Bhasin, Y. S. Ceylan, A. D. Dillon, <strong>S. K. Giri</strong>, G. C. Schatz, and R. L. M. Gieseking
+          </p>
+          <p class="pub-journal">
+            <em>Journal of Chemical Theory and Computation 21, 17-28</em>
+            (2025).
+            <a href="https://doi.org/10.1021/acs.jctc.4c01302">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2024</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1021/acs.jpcc.4c05828">
+              Modeling Surface-Enhanced Raman Scattering of Au-Pyrazine and Au-Pyrazine-Au Nanorod Dimer Systems with the TD-DFTB Method
+            </a>
+          </h3>
+          <p class="pub-authors">
+            <strong>S. K. Giri</strong> and G. C. Schatz
+          </p>
+          <p class="pub-journal">
+            <em>The Journal of Physical Chemistry C 128, 19270-19279</em>
+            (2024).
+            <a href="https://doi.org/10.1021/acs.jpcc.4c05828">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2024</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1073/pnas.2404433121">
+              Switching of electrochemical selectivity due to plasmonic field-induced dissociation
+            </a>
+          </h3>
+          <p class="pub-authors">
+            F. M. Alcorn, <strong>S. K. Giri</strong>, M. Chattoraj, R. Nixon, G. C. Schatz, and P. K. Jain
+          </p>
+          <p class="pub-journal">
+            <em>Proceedings of the National Academy of Sciences 121, e2404433121</em> (2024).
+            <a href="https://doi.org/10.1073/pnas.2404433121">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2024</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1021/acs.jpclett.4c01948">
+              Impact of Classical and Quantum Light on Donor-Acceptor-Donor Molecules
+            </a>
+          </h3>
+          <p class="pub-authors">
+            H. Mandal, <strong>S. K. Giri</strong>, S. Jovanovski,
+            O. Varnavski, M. Zagorska, R. Ganczarczyk,
+            T.-M. Chiang, G. C. Schatz, and T. Goodson III
+          </p>
+          <p class="pub-journal">
+            <em>The Journal of Physical Chemistry Letters 15, 9493-9501</em>
+            (2024).
+            <a href="https://doi.org/10.1021/acs.jpclett.4c01948">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2024</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1063/5.0216887">
+              Laser pulse induced second- and third-harmonic generation of gold nanorods with real-time time-dependent density functional tight binding (RT-TDDFTB) method
+            </a>
+          </h3>
+          <p class="pub-authors">
+            <strong>S. K. Giri</strong> and G. C. Schatz
+          </p>
+          <p class="pub-journal">
+            <em>The Journal of Chemical Physics 161, 044703</em> (2024).
+            <a href="https://doi.org/10.1063/5.0216887">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2024</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1088/1361-651X/ad4d0d">
+              Roadmap on data-centric materials science
+            </a>
+          </h3>
+          <p class="pub-authors">
+            S. Bauer, P. Benner, T. Bereau, et al.,
+            including <strong>S. K. Giri</strong>
+          </p>
+          <p class="pub-journal">
+            <em>Modelling and Simulation in Materials Science
+              and Engineering 32, 063301</em> (2024).
+            <a href="https://doi.org/10.1088/1361-651X/ad4d0d">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2023</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1073/pnas.2307719120">
+              Colors of entangled two-photon absorption
+            </a>
+          </h3>
+          <p class="pub-authors">
+            O. Varnavski, <strong>S. K. Giri</strong>,
+            T.-M. Chiang, C. J. Zeman IV, G. C. Schatz,
+            and T. Goodson III
+          </p>
+          <p class="pub-journal">
+            <em>Proceedings of the National Academy of Sciences
+              120, e2307719120</em> (2023).
+            <a href="https://doi.org/10.1073/pnas.2307719120">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2023</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1021/acs.jpcc.3c00006">
+              Photodissociation of H<sub>2</sub> on Ag and Au Nanoparticles:
+              Effect of Size and Plasmon versus Interband Transitions
+              on Threshold Intensities for Dissociation
+            </a>
+          </h3>
+          <p class="pub-authors">
+            <strong>S. K. Giri</strong> and G. C. Schatz
+          </p>
+          <p class="pub-journal">
+            <em>The Journal of Physical Chemistry C 127, 4115-4123</em>
+            (2023).
+            <a href="https://doi.org/10.1021/acs.jpcc.3c00006">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2022</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1021/acs.jpclett.2c02842">
+              Manipulating Two-Photon Absorption of Molecules through
+              Efficient Optimization of Entangled Light
+            </a>
+          </h3>
+          <p class="pub-authors">
+            <strong>S. K. Giri</strong> and G. C. Schatz
+          </p>
+          <p class="pub-journal">
+            <em>The Journal of Physical Chemistry Letters 13, 10140-10146</em>
+            (2022).
+            <a href="https://doi.org/10.1021/acs.jpclett.2c02842">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2022</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1103/PhysRevE.106.024131">
+              Controlling thermodynamics of a quantum heat engine with modulated amplitude drivings
+            </a>
+          </h3>
+          <p class="pub-authors">
+            <strong>S. K. Giri</strong> and H. P. Goswami
+          </p>
+          <p class="pub-journal">
+            <em>Physical Review E 106, 024131</em> (2022).
+            <a href="https://doi.org/10.1103/PhysRevE.106.024131">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2021</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1039/D0FD00117A">
+              Perspectives for analyzing non-linear photo-ionization
+              spectra with deep neural networks trained with
+              synthetic Hamilton matrices
+            </a>
+          </h3>
+          <p class="pub-authors">
+            <strong>S. K. Giri</strong>, L. Alonso,
+            U. Saalmann, and J. M. Rost
+          </p>
+          <p class="pub-journal">
+            <em>Faraday Discussions 228, 502-518</em> (2021).
+            <a href="https://doi.org/10.1039/D0FD00117A">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2020</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1103/PhysRevLett.124.113201">
+              Purifying Electron Spectra from Noisy Pulses with
+              Machine Learning Using Synthetic Hamilton Matrices
+            </a>
+          </h3>
+          <p class="pub-authors">
+            <strong>S. K. Giri</strong>, U. Saalmann, and J. M. Rost
+          </p>
+          <p class="pub-journal">
+            <em>Physical Review Letters 124, 113201</em> (2020).
+            <a href="https://doi.org/10.1103/PhysRevLett.124.113201">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2019</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1103/PhysRevE.99.022104">
+              Nonequilibrium fluctuations of a driven quantum
+              heat engine via machine learning
+            </a>
+          </h3>
+          <p class="pub-authors">
+            <strong>S. K. Giri</strong> and H. P. Goswami
+          </p>
+          <p class="pub-journal">
+            <em>Physical Review E 99, 022104</em> (2019).
+            <a href="https://doi.org/10.1103/PhysRevE.99.022104">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2018</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1103/PhysRevLett.121.153203">
+              Adiabatic Passage to the Continuum:
+              Controlling Ionization with Chirped Laser Pulses
+            </a>
+          </h3>
+          <p class="pub-authors">
+            U. Saalmann, <strong>S. K. Giri</strong>, and J. M. Rost
+          </p>
+          <p class="pub-journal">
+            <em>Physical Review Letters 121, 153203</em> (2018).
+            <a href="https://doi.org/10.1103/PhysRevLett.121.153203">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2017</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1103/PhysRevE.96.052129">
+              Geometric phaselike effects in a quantum heat engine
+            </a>
+          </h3>
+          <p class="pub-authors">
+            <strong>S. K. Giri</strong> and H. P. Goswami
+          </p>
+          <p class="pub-journal">
+            <em>Physical Review E 96, 052129</em> (2017).
+            <a href="https://doi.org/10.1103/PhysRevE.96.052129">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+      <li>
+        <span class="pub-year">2017</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1080/09500340.2016.1271150">
+              Single-photon ionization in intense, fluctuating pulses
+            </a>
+          </h3>
+          <p class="pub-authors">
+            <strong>S. K. Giri</strong>, U. Saalmann, and J. M. Rost
+          </p>
+          <p class="pub-journal">
+            <em>Journal of Modern Optics 64, 1004-1009</em> (2017).
+            <a href="https://doi.org/10.1080/09500340.2016.1271150">DOI</a>
+          </p>
+        </div>
+      </li>
+
+      <!-- BOOK CHAPTER -->
+      <li>
+        <span class="pub-year">2024</span>
+        <div>
+          <h3>
+            <a href="https://doi.org/10.1007/978-981-97-5818-0_1">
+              Plasmon-Enhanced Spectroscopy and Photocatalysis
+            </a>
+          </h3>
+          <p class="pub-authors">
+            <strong>S. K. Giri</strong> and G. C. Schatz
+          </p>
+          <p class="pub-journal">
+            In <em>Surface- and Tip-Enhanced Raman Scattering Spectroscopy</em>,
+            Springer, pp. 3-17 (2024). Book chapter.
+            <a href="https://doi.org/10.1007/978-981-97-5818-0_1">DOI</a>
+          </p>
+        </div>
+      </li>
+
+
+     </ol>
+    </div>
+   </section>
+
+
+
+
+
+
+   <section class="page-main route-view" id="skg" tabindex="-1">
+    <div class="wrap">
+     <h1>
+      Sajal Giri
+     </h1>
+     <p class="page-lead">
+      Assistant Professor · Department of Chemical Sciences · IISER Mohali
+     </p>
+     <div aria-label="Academic profiles" class="profile-links">
+      <a href="https://scholar.google.com/citations?user=HlKvDGoAAAAJ&amp;hl=en">
+       Google Scholar
+      </a>
+      <span aria-hidden="true">
+       |
+      </span>
+      <a href="https://orcid.org/0000-0001-9145-6801">
+       ORCID
+      </a>
+      <span aria-hidden="true">
+       |
+      </span>
+      <a href="https://vidwan.inflibnet.ac.in/profile/626199" title="IRINS portal">
+       IRINS
+      </a>
+      <span aria-hidden="true">
+       |
+      </span>
+      <a href="https://web.iisermohali.ac.in/dept/dcs/index.php/faculty-and-staff/faculty-skg">
+       IISER Mohali
+      </a>
+     </div>
+     <div class="profile-layout">
+
+      <section class="profile-panel">
+       <h2>
+        Employment
+       </h2>
+       <ul class="timeline">
+        <li>
+         <strong>
+          2025-present
+         </strong>
+         <br/>
+         Assistant Professor | IISER Mohali
+        </li>
+        <li>
+         <strong>
+          2024-2025
+         </strong>
+         <br/>
+         Assistant Professor | IIT (ISM) Dhanbad
+        </li>
+        <li>
+         <strong>
+          2021-2024
+         </strong>
+         <br/>
+         Postdoctoral Fellow | Northwestern University, USA
+        </li>
+        <li>
+         <strong>
+          2021
+         </strong>
+         <br/>
+         Industry | Iambic Therapeutics (Entos), USA
+        </li>
+       </ul>
+      </section>
+
+      <section class="profile-panel">
+       <h2>
+        Academics
+       </h2>
+       <ul class="timeline">
+        <li>
+         <strong>
+          2015-2020
+         </strong>
+         <br/>
+         PhD | Max Planck Institute for the Physics of Complex Systems, Dresden, Germany
+        </li>
+        <li>
+         <strong>
+          2013-2015
+         </strong>
+         <br/>
+         MSc | IIT Kanpur
+        </li>
+        <li>
+         <strong>
+          2010-2013
+         </strong>
+         <br/>
+         BSc | Ramakrishna Mission Vidyamandira, University of Calcutta
+        </li>
+       </ul>
+      </section>
+     </div>
+    </div>
+   </section>
+
+
+
+
+
+
+
+  <section class="page-main route-view" id="contact" tabindex="-1">
+    <div class="wrap">
+    <h1>
+      Contact
+    </h1>
+    <p class="page-lead">
+      Giri Research Laboratory · IISER Mohali
+    </p>
+    <section class="contact-panel">
+      <p>
+      Dr. Sajal Giri
+      <br/>
+      Department of Chemical Sciences
+      <br/>
+      Indian Institute of Science Education and Research (IISER) Mohali
+      <br/>
+      Punjab, India
+        <br/>
+        Office: Academic Block 1 - 1F5 | Email: sajal@iisermohali.ac.in
+      </p>
+      <div class="contact-links">
+      <a class="button" href="https://web.iisermohali.ac.in/dept/dcs/index.php/faculty-and-staff/faculty-skg">
+        IISER Mohali Profile 
+      </a>
+      <a class="button" href="#skg">
+        Academic Profile 
+      </a>
+      </div>
+    </section>
+    </div>
+  </section>
+
+
+
+  </main>
+
+
+
+  <footer>
+   <div class="wrap">
+    <span>
+     ©
+     <span id="year">
+      2026
+     </span>
+     Giri Research Laboratory
+    </span>
+   </div>
+  </footer>
+
+
+  <script>
+   const toggle=document.querySelector('.menu'), navigation=document.querySelector('#navigation');
+toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));navigation.classList.toggle('open',open)});
+navigation.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{toggle.setAttribute('aria-expanded','false');navigation.classList.remove('open')}));
+document.querySelector('#year').textContent=new Date().getFullYear();
+  </script>
+  
+ </body>
+</html>
