@@ -1186,6 +1186,93 @@ body:has(#research :target) nav a[href='#research'] { background: #f0dfe2; color
 #contact > .wrap > .page-lead {
   text-align: left;
 }
+
+body:has(#teaching:target) #main > section:not(#teaching) {
+  display: none;
+}
+
+#main > #teaching:target {
+  display: block;
+  min-height: 75vh;
+}
+
+#teaching-heading {
+  font-family: 'Courier New', monospace;
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--maroon);
+  margin: 0 0 30px;
+  text-align: center;
+}
+
+body:has(#teaching:target) nav a[href="#teaching"] {
+  background: #f0dfe2;
+  color: #590e22;
+}
+
+#teaching .profile-panel,
+#teaching .profile-panel * {
+  color: #000000;
+}
+
+.card,
+.profile-panel,
+.contact-panel {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+@media (hover: hover) {
+  .card:hover,
+  .profile-panel:hover,
+  .contact-panel:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 12px 28px rgba(80, 11, 25, 0.12);
+    border-color: #b78b97;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .profile-panel,
+  .contact-panel {
+    transition: none;
+    transform: none;
+  }
+}
+
+#teaching .timeline li {
+  border-bottom: none;
+}
+
+#teaching .timeline,
+#teaching .timeline * {
+  text-decoration: none;
+}
+
+#teaching h2,
+#teaching .timeline,
+#teaching .timeline strong {
+  color: #000000;
+}
+#research,
+#publications,
+#skg,
+#contact,
+#teaching {
+  padding-top: 60px;
+}
+
+#research-heading,
+#publications-heading,
+#skg > .wrap > h1,
+#contact > .wrap > h1,
+#teaching-heading {
+  margin-top: 0;
+}
   </style>
  </head>
 
@@ -1230,6 +1317,9 @@ body:has(#research :target) nav a[href='#research'] { background: #f0dfe2; color
         </a>
         <a href="#publications">
           Publications
+        </a>
+        <a href="#teaching">
+          Teaching
         </a>
         <a href="#contact">
           Contact
@@ -1496,7 +1586,7 @@ body:has(#research :target) nav a[href='#research'] { background: #f0dfe2; color
       Sajal Giri
      </h1>
      <p class="page-lead">
-      Assistant Professor · Department of Chemical Sciences · IISER Mohali
+      Assistant Professor | Department of Chemical Sciences | IISER Mohali
      </p>
      <div aria-label="Academic profiles" class="profile-links">
       <a href="https://scholar.google.com/citations?user=HlKvDGoAAAAJ&amp;hl=en" target="_blank">
@@ -2405,6 +2495,35 @@ body:has(#research :target) nav a[href='#research'] { background: #f0dfe2; color
 
 
 
+<section
+  class="page-main route-view"
+  id="teaching"
+  aria-labelledby="teaching-heading"
+  tabindex="-1"
+>
+  <div class="wrap">
+    <h1 id="teaching-heading">
+      Teaching
+    </h1>
+
+    <section>
+      <ul class="timeline">
+        <li>
+          <strong>CHM619 | Numerical Methods in Chemistry</strong> 
+          <br>          
+          <strong>CHM304 | Symmetry in Chemistry</strong>
+          <br>  
+          <strong>IDC352 | Basics of Science Communication</strong>
+        </li>
+    </section>
+
+  </div>
+</section>
+
+
+
+
+
 
 
   <section class="page-main route-view" id="contact" tabindex="-1">
@@ -2412,9 +2531,6 @@ body:has(#research :target) nav a[href='#research'] { background: #f0dfe2; color
     <h1>
       Contact
     </h1>
-    <p class="page-lead">
-      Giri Research Lab · IISER Mohali
-    </p>
     <section class="contact-panel">
       <p>
       Dr. Sajal Giri
