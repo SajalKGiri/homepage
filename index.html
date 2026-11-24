@@ -1342,6 +1342,27 @@ body:has(#teaching:target) nav a[href="#teaching"] {
   text-align: center;
 }
 
+footer .footer-content {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+footer .last-updated {
+  text-align: left;
+}
+
+footer .copyright {
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  footer .footer-content {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
   </style>
  </head>
 
@@ -1356,15 +1377,15 @@ body:has(#teaching:target) nav a[href="#teaching"] {
 
   <header>
    <div class="wrap nav">
-      <a aria-label="Quantum Dynamics and Spectroscopy home" class="brand" href="#home">
-      <img src="giri_logo.png"  alt="Quantum Dynamics and Spectroscopy logo" class="dedicated-logo" width="51" height="51">
+      <a aria-label="Quantum Light-Matter home" class="brand" href="#home">
+      <img src="giri_logo.png"  alt="Quantum Light-Matter logo" class="dedicated-logo" width="51" height="51">
       <path d="M175 63A80 80 0 1 0 194 151V119H125" fill="none" stroke="#500b19" stroke-linecap="square" stroke-linejoin="round" stroke-width="19">
       </path>
       <path d="M147 149L207 211" fill="none" stroke="#500b19" stroke-linecap="square" stroke-width="15">
       </path>
       <span>
         <strong>
-        Quantum Dynamics and Spectroscopy
+        Quantum Light-Matter
         </strong>
         <small>
         Sajal Giri | IISER Mohali | Chemical Sciences
@@ -1599,7 +1620,7 @@ body:has(#teaching:target) nav a[href="#teaching"] {
     </svg>
     <div class="hero-content">
      <h1 id="welcome">
-      Quantum Dynamics and Spectroscopy
+      Quantum Light-Matter
      </h1>
      <p class="hero-affiliation">
       IISER Mohali | Chemical Sciences
@@ -1628,10 +1649,10 @@ body:has(#teaching:target) nav a[href="#teaching"] {
    <section aria-labelledby="intro-title" class="home-intro">
     <div class="wrap">
      <h2 id="intro-title">
-      Exploring quantum dynamics and spectroscopy
+      Exploring quantum light-matter at the nanoscale
      </h2>
      <p>
-      We develop theoretical and computational methods for novel quantum spectroscopy and dynamics. 
+      We develop theoretical and computational methods for novel quantum dynamics and spectroscopy. 
       Our work brings together quantum light-matter and machine learning to explore light induced processes in molecules and nanoscale materials.
      </p>
      <a href="#research">
@@ -1759,7 +1780,7 @@ body:has(#teaching:target) nav a[href="#teaching"] {
        Research
       </h2>
       <p>
-      We develop theoretical and computational methods for novel quantum spectroscopy and dynamics. 
+      We develop theoretical and computational methods for novel quantum dynamics and spectroscopy. 
       Our work brings together quantum light-matter and machine learning to explore light induced processes in molecules and nanoscale materials.
       </p>
      </div>
@@ -2679,17 +2700,39 @@ body:has(#teaching:target) nav a[href="#teaching"] {
 
 
 
-  <footer>
-   <div class="wrap">
-    <span>
-     ©
-     <span id="year">
-      2026
-     </span>
-     Quantum Dynamics and Spectroscopy
+<footer>
+  <div class="wrap footer-content">
+    <span class="last-updated">
+      Last updated: <span id="updated-date">24 November 2026</span>
     </span>
-   </div>
-  </footer>
+
+    <span class="copyright">
+      © <span id="year">2026</span> Sajal Giri  |  IISER Mohali
+    </span>
+  </div>
+</footer>
+
+<script>
+  function updateFooterDate() {
+    const today = new Date();
+
+    document.getElementById("updated-date").textContent =
+      today.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        timeZone: "Asia/Kolkata"
+      });
+
+    document.getElementById("year").textContent =
+      today.toLocaleDateString("en-GB", {
+        year: "numeric",
+        timeZone: "Asia/Kolkata"
+      });
+  }
+
+  updateFooterDate();
+</script>
 
 
   <script>
