@@ -906,12 +906,12 @@ nav a {
   color:#fff0f3
 }
 nav a:hover,nav a:focus-visible {
-  background:#6f0e16;
+  background:#500b19;
   color:#fff
 }
 nav a[href='#home'] {
   background:#f0dfe2;
-  color:#6f0e16
+  color:#500b19
 }
 .research-quote blockquote {
   font-size:15px;
@@ -929,7 +929,7 @@ nav a[href='#home'] {
 }
 @media(max-width:850px) {
   nav {
-  background:#6f0e16
+  background:#500b19
 }
 
 }
@@ -1060,7 +1060,7 @@ nav a[href='#home'] {
 
 nav a[aria-current='page'] {
   background:#f0dfe2;
-  color:#590e22
+  color:#500b19
 }
 
 .hero .hero-affiliation {
@@ -1196,7 +1196,7 @@ body:has(#teaching:target) #main > section:not(#teaching) {
 
 body:has(#teaching:target) nav a[href="#teaching"] {
   background: #f0dfe2;
-  color: #590e22;
+  color: #500b19;
 }
 
 #teaching .profile-panel,
@@ -1275,9 +1275,9 @@ body:has(#teaching:target) nav a[href="#teaching"] {
 #contact .profile-links a {
   display: inline-block;
   padding: 9px 16px;
-  background: #590e22;
+  background: #500b19;
   color: #ffffff;
-  border: 1px solid #590e22;
+  border: 1px solid #500b19;
   border-radius: 6px;
   text-decoration: none;
   font-size: 14px;
@@ -1286,8 +1286,8 @@ body:has(#teaching:target) nav a[href="#teaching"] {
 
 #contact .profile-links a:hover,
 #contact .profile-links a:focus-visible {
-  background: #823247;
-  border-color: #823247;
+  background: #500b19;
+  border-color: #500b19;
 }
 
 #publications .pub-list {
@@ -1372,6 +1372,47 @@ main > section:not(.hero) .pub-journal,
 main > section:not(.hero) blockquote,
 main > section:not(.hero) figcaption {
   color: #000000 !important;
+}
+
+
+html,
+body,
+main {
+  background: #f7f7f7;
+}
+
+#home,
+.home-intro,
+#research,
+#publications,
+#skg,
+#teaching,
+#contact {
+  background: #f7f7f7;
+  background-image: none;
+}
+
+#home.hero {
+  background: linear-gradient(
+    135deg,
+    #263e4c,
+    #0b1c29
+  );
+}
+
+footer {
+  background: #500b19;
+  color: #ffffff;
+  padding: 22px 0;
+  border-top: 1px solid #500b19;
+}
+
+footer .footer-content,
+footer .last-updated,
+footer .copyright,
+footer span,
+footer a {
+  color: #ffffff;
 }
 
   </style>
@@ -2706,6 +2747,7 @@ main > section:not(.hero) figcaption {
         </section>  
       </div>
     </section>
+
 
   </main>
 
